@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  oracle-db:
+    build:
+      context: .
+    image: oracle/database:11.2.0.2-xe
+    container_name: oracle-db
+    shm_size: 1g
+    ports:
+      - 1521:1521
+      - 18080:8080
+    volumes:
+      - ./data/oracle/oradata:/home/oracle/oradata
