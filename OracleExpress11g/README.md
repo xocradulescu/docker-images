@@ -8,16 +8,17 @@ Download Oracle Database 11g Release 2 Express Edition for Linux x64
 from [here](http://www.oracle.com/technetwork/database/database-technologies/express-edition/downloads/index.html)
 place it in the `OracleExpress11g` folder
 
-BUILD AND RUN STEP
+BUILD AND RUN STEPS
 ------------------
-run `docker-compose up -d` to build the image and run the container
+`docker-compose up -d`
 
 USING THE DATABASE
 ------------------
-connect to the database container:
-`docker exec -ti oracle-db /bin/sh`
-
 update the SYS and SYSTEM passwords:
-`./setPassword.sh <password>`
+`docker exec -ti oracle-db setPassword.sh <password>`
+
+EXTRA
+-----
+For more details about how to use this image please read [this](https://github.com/oracle/docker-images/blob/master/OracleDatabase/SingleInstance/README.md)
 
 
