@@ -30,7 +30,7 @@ FROM oraclelinux:7-slim
 
 # Maintainer
 # ----------
-MAINTAINER Gerald Venzl <gerald.venzl@oracle.com>
+MAINTAINER Costel Radulescu <costel.radulescu@aurea.com>
 
 # Environment variables required for this build (do NOT change)
 # -------------------------------------------------------------
@@ -67,7 +67,8 @@ RUN yum -y install unzip libaio bc initscripts net-tools openssl && \
     mkdir -p $ORACLE_BASE/scripts/setup && \
     mkdir $ORACLE_BASE/scripts/startup && \
     ln -s $ORACLE_BASE/scripts /docker-entrypoint-initdb.d && \
-    mkdir $ORACLE_BASE/oradata && \
+		mkdir -p $ORACLE_BASE/oradata/tablespaces && \
+		mkdir -p $ORACLE_BASE/DATAPUMP && \
     chown -R oracle:dba $ORACLE_BASE && \
     mv $INSTALL_DIR/$CONFIG_RSP $ORACLE_BASE/ && \
     mv $INSTALL_DIR/$RUN_FILE $ORACLE_BASE/ && \

@@ -10,5 +10,13 @@ services:
     ports:
       - 1521:1521
       - 18080:8080
+    networks:
+      - docker_network
     volumes:
-      - ./data/oracle/oradata:/home/oracle/oradata
+      - ./data/oracle/oradata:/u01/app/oracle/oradata
+      - /home/xo/aurea/vm-share/db_dump:/u01/app/oracle/DATAPUMP
+
+networks:
+  docker_network:
+    driver: bridge
+
